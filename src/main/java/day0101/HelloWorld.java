@@ -6,7 +6,7 @@ package day0101;
  * @date 2020/11/25 8:45 下午
  */
 
-public class Helloworld {
+public class HelloWorld {
 
     public static void main(String[] args) {
         System.out.println("hello world!");

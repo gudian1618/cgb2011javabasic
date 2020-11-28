@@ -1,0 +1,28 @@
+package day02;
+
+import java.util.Scanner;
+
+/**
+ * @author gudian1618
+ * @version v1.0
+ * @date 2020/11/25 9:19 下午
+ */
+
+public class Test4_Scope {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        int a = scanner.nextInt();
+        int b = scanner.nextInt();
+
+        // 交换值
+        int t = a;
+        a = b;
+        b = t;
+
+        System.out.println(a);
+        System.out.println(b);
+    }
+
+}
