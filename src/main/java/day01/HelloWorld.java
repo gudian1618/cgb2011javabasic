@@ -1,4 +1,4 @@
-package day0101;
+package day01;
 
 /**
  * @author gudian1618

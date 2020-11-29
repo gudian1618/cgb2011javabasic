@@ -17,7 +17,25 @@ public class Test3 {
         int r = random.nextInt(100) + 1;
         System.out.println(r);
         // 2.调用方法完成
-        method(r);
+        // method(r);
+
+        method2(r);
+    }
+
+    public static void method2(int r) {
+        do {
+            // 1.接收用户输入的值
+            int input = new Scanner(System.in).nextInt();
+            // 2.判断和随机数的关系
+            if (input > r) {
+                System.out.println("大了");
+            } else if (input < r) {
+                System.out.println("小了");
+            } else if (input == r) {
+                System.out.println("相等");
+                break;
+            }
+        } while (r > 50);
     }
 
     public static void method(int r) {
@@ -27,7 +45,7 @@ public class Test3 {
             // 1.接收用户输入的值
             int input = new Scanner(System.in).nextInt();
             // 2.判断和随机数的关系
-            if (input>r) {
+            if (input > r) {
                 System.out.println("大了");
             } else if (input < r) {
                 System.out.println("小了");
