@@ -9,15 +9,33 @@ package day06;
 public class Test1 {
 
     public static void main(String[] args) {
+
         Phone p = new Phone();
         p.call();
         p.message();
         p.music();
 
+        System.out.println(p.price);
         System.out.println(p.color);
         System.out.println(p.size);
         System.out.println(p.model);
-        System.out.println(p.price);
+
+        System.out.println("===============");
+
+        // 创建第二个同一个类对象
+        Phone p2 = new Phone();
+
+        // 给对象的属性赋值
+        p2.color = "red";
+        p2.size = "5.9";
+        p2.model = "huawei";
+        p2.price = 888;
+
+        System.out.println(p2.price);
+        System.out.println(p2.color);
+        System.out.println(p2.size);
+        System.out.println(p2.model);
+
     }
 
 }
