@@ -8,7 +8,24 @@ package day08.staticdemo;
 public class Test1 {
 
     public static void main(String[] args) {
+        // 静态资源可以被类名直接调用
+        // 静态资源优先于对象加载,比对象优先加载先执行
+        System.out.println(Student.name);
+        Student.study();
+
         Student s = new Student();
+
+        // 静态方法和属性可以用对象访问,但不推荐这样使用
+        s.study();
+        s.name = "tony";
+        System.out.println(s.name);
+
+        System.out.println(Student.name);
+
+        // 静态资源在多个对象资源间是共享的
+        Student s2 = new Student();
+        System.out.println(s2.name);
+
     }
 
 }
