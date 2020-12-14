@@ -1,4 +1,4 @@
-package day08;
+package day08.oop;
 
 /**
  * @author gudian1618
