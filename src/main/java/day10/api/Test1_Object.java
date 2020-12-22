@@ -1,10 +1,14 @@
 package day10.api;
 
+import java.util.Objects;
+
 /**
  * @author gudian1618
  * @version v1.0
  * @date 2020/12/21 9:23 下午
  * 测试Object类的使用
+ * equals重写之后,比较的是具体的属性值是否相同,否则默认比较地址值
+ * toString重写之后,是打印对象的属性值,而不是没重写前的打印对象的地址值(hash值)
  */
 
 public class Test1_Object {
@@ -23,6 +27,12 @@ public class Test1_Object {
 
         // 返回对象在内存中的哈希码值
         System.out.println(s.hashCode());
+
+        // equals(),比较两个对象是否相等
+        // equals()在Object对象中的实现方式,return this == obj
+        // 底层用了==进行对象的比较,两个对象的地址值的比较肯定不同
+        Student s2 = new Student("jack", 10);
+        System.out.println(s.equals(s2));
 
     }
 
@@ -47,5 +57,19 @@ class Student {
             ", age=" + age +
             '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Student)) {
+            return false;
+        }
+        // 向下转型,强制转型,目的是使用子类的特有功能
+        Student student = (Student) o;
+        return age == student.age && Objects.equals(name, student.name);
+    }
+
 }
 
