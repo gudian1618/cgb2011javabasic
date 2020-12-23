@@ -53,7 +53,7 @@ public class Test2_String {
         // 去掉字符串最前最后的多余空格
         System.out.println(s2.trim());
         // 将数值型转换成字符串型的静态方法,字符串与任何拼接都是字符串
-        System.out.println(String.valueOf(10)+10);
+        System.out.println(String.valueOf(10) + 10);
     }
 
 }
