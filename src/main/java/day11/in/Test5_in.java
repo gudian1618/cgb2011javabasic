@@ -19,7 +19,7 @@ public class Test5_in {
     private static void method2() {
         try {
             // 1.创建字节流的读取对象
-            // BufferedInputStream提高效率地读取,原因底层维护了一个byte[]数组
+            // BufferedInputStream提高效率地读取,原因底层维护了一个byte[]数组,默认容量8K,8*1024
             InputStream in2 = new BufferedInputStream(new FileInputStream("src/main/java/day11/m/1.txt"));
             // 2.开始读取
             // System.out.println(in2.read());
