@@ -19,22 +19,30 @@ public class Test1_OutputStream {
     }
 
     private static void method() {
+        OutputStream out = null;
         try {
             // 1.创建输出流对象
             // OutputStream是抽象类不能直接new
             // 多态对象子类,使用父类的方法
-            OutputStream out = new FileOutputStream("src/main/java/day11/out");
+            out = new FileOutputStream("src/main/java/day11/out");
 
             // 2.正式写出数据
             out.write(97);
+            out.write(98);
+            out.write(99);
 
-            // 3.释放资源
-            out.close();
 
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            // 能够保证代码一定会被执行
+            try {
+                // 3.释放资源
+                out.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-
     }
 
 }
