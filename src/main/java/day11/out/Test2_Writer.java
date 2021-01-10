@@ -1,5 +1,6 @@
 package day11.out;
 
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
@@ -15,6 +16,30 @@ public class Test2_Writer {
 
     public static void main(String[] args) {
         method();
+        // 高效的字符流
+        method2();
+    }
+
+    private static void method2() {
+        BufferedWriter out = null;
+        try {
+            // 1.创建字符流
+            out = new BufferedWriter(new FileWriter("src/main/java/day11/2.txt", true));
+            // 2.写出数据
+            out.write(90);
+            out.write(91);
+            out.write(92);
+            out.write("io");
+            out.write("test");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                out.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private static void method() {
