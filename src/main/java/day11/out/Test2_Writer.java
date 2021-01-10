@@ -20,8 +20,8 @@ public class Test2_Writer {
     private static void method() {
         Writer out = null;
         try {
-            // 1.创建字符输出流对象
-            out = new FileWriter("src/main/java/day11/2.txt");
+            // 1.创建字符输出流对象 默认数据就是覆盖模式
+            out = new FileWriter("src/main/java/day11/2.txt", true);
             // 2.写出数据
             out.write("100");
             out.write("hello");
