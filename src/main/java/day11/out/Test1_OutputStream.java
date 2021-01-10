@@ -7,6 +7,7 @@ import java.io.*;
  * @version v1.0
  * @date 2021/1/5 10:04 下午
  * 测试字节输出流
+ * Buffered的底层维护了一个byte[]数组,8192字节,可以减少与磁盘的交互次数,提高效率和速度,减少频繁的IO读写
  */
 
 public class Test1_OutputStream {
@@ -46,8 +47,7 @@ public class Test1_OutputStream {
             // 1.创建输出流对象
             // OutputStream是抽象类不能直接new
             // 多态对象子类,使用父类的方法
-            out = new FileOutputStream("src/main/java/day11/out");
-
+            out = new FileOutputStream("src/main/java/day11/2.txt");
             // 2.正式写出数据
             out.write(97);
             out.write(98);
