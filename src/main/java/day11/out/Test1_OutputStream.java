@@ -1,8 +1,6 @@
 package day11.out;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 
 /**
  * @author gudian1618
@@ -16,6 +14,30 @@ public class Test1_OutputStream {
     public static void main(String[] args) {
         // 使用普通的字节输出流对象输出数据
         method();
+        // 使用高性能的字节输出流
+        method2();
+    }
+
+    private static void method2() {
+        OutputStream out = null;
+        try {
+            // 1.创建爱你输出对象
+            out = new BufferedOutputStream(new FileOutputStream("src/main/java/day11/2.txt"));
+            // 2.写出数据
+            out.write(48);
+            out.write(49);
+            out.write(50);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            // 3. 释放资源
+            try {
+                out.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
     private static void method() {
