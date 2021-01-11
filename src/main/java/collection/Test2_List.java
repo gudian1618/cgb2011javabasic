@@ -80,6 +80,7 @@ public class Test2_List {
             System.out.println(s);
         }
 
+        System.out.println("====");
         // 方式4: 子类本身的迭代器,拥有父接口的所有方法,并具备子接口的特有方法
         ListIterator<String> it2 = list.listIterator();
         while (it2.hasNext()) {
