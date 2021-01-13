@@ -10,14 +10,14 @@ public class Test1_Thread {
 
     public static void main(String[] args) {
         // 1.创建Thread对象,新建状态
-        MyThread t = new MyThread();
+        MyThread t = new MyThread("jack");
         // run是普通方法的调用,单线程
         // t.run();
         // 启动线程,jvm自动调用run()方法的业务
         // 从新建状态转成可运行状态,就可以等待CPU调度运行
         // 该方法才能实现多线程
         t.start();
-        MyThread t2 = new MyThread();
+        MyThread t2 = new MyThread("rose");
         t2.start();
     }
 
@@ -34,4 +34,13 @@ class MyThread extends Thread {
             System.out.println(i + getName());
         }
     }
+
+    public MyThread() {
+        super();
+    }
+
+    public MyThread(String name) {
+        super(name);
+    }
+
 }
