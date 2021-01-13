@@ -13,11 +13,15 @@ public class Test2_Runnable {
         MyRunnable target = new MyRunnable();
 
         // 如何把接口的实现类转成Thread类
-        Thread thread = new Thread(target);
+        // 直接使用Thread的含参构造
+        Thread thread = new Thread(target, "勃拉姆斯");
         thread.start();
 
-        Thread thread1 = new Thread(target);
+        Thread thread1 = new Thread(target, "西贝柳斯");
         thread1.start();
+
+        // start(多线程执行) 和 run(主程序创建一个普通的单线程顺序执行) 的区别
+
     }
 
 }
