@@ -4,6 +4,7 @@ package com.github.gudian1618.cgb2011javabasic.thread;
  * @author gudian1618
  * @version v1.0
  * @date 2021/1/16 1:30 下午
+ * CPU的延迟访问,随机性调度,共享数据,会造成多线程问题
  */
 
 public class Test4_TIcket2 {
@@ -21,7 +22,7 @@ public class Test4_TIcket2 {
 }
 
 class TicketRunnable implements Runnable {
-    int ticket = 100;
+    static int ticket = 100;
 
     // 把业务放入run方法
     @Override
