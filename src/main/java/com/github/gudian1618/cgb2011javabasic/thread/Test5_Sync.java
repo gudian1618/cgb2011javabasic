@@ -1,5 +1,8 @@
 package com.github.gudian1618.cgb2011javabasic.thread;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 /**
  * @author gudian1618
  * @version v1.0
@@ -14,14 +17,21 @@ package com.github.gudian1618.cgb2011javabasic.thread;
 public class Test5_Sync {
     public static void main(String[] args) {
         TicketsSyn target = new TicketsSyn();
-        Thread t1 = new Thread(target);
-        Thread t2 = new Thread(target);
-        Thread t3 = new Thread(target);
-        Thread t4 = new Thread(target);
-        t1.start();
-        t2.start();
-        t3.start();
-        t4.start();
+        // Thread t1 = new Thread(target);
+        // Thread t2 = new Thread(target);
+        // Thread t3 = new Thread(target);
+        // Thread t4 = new Thread(target);
+        // t1.start();
+        // t2.start();
+        // t3.start();
+        // t4.start();
+
+        // 把新建,启动和关闭线程交给线程池解决
+        // Executors辅助创建线程池对象
+        ExecutorService pool = Executors.newFixedThreadPool(5);
+        for (int i = 0; i < 5; i++) {
+            pool.execute(target);
+        }
     }
 
 }
@@ -30,10 +40,8 @@ class TicketsSyn implements Runnable {
 
     int tickets = 100;
 
-    Object o = new Object();
-
     @Override
-    synchronized public void run() {
+    public void run() {
         while (true) {
             // 同一时间,资源没人抢占,独占
             // 同步代码块
@@ -51,6 +59,5 @@ class TicketsSyn implements Runnable {
                 }
             }
         }
-
     }
 }
