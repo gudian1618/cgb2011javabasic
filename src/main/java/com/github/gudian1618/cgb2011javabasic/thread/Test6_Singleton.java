@@ -5,7 +5,7 @@ package com.github.gudian1618.cgb2011javabasic.thread;
  * @version v1.0
  * @date 2021/1/20 8:18 下午
  * 设计单例模式
- * 饿汉式吗,主动
+ * 饿汉式,主动,相对简单
  */
 
 public class Test6_Singleton {
