@@ -110,6 +110,12 @@ public class Test1_Reflect {
         Student obj = c.newInstance("jack", 20);
         System.out.println(obj);
 
+        // 为什么要把Object强转成子类? 为了使用子类的特有方法
+        // 向下转型
+        Student s = obj;
+        System.out.println(s.name);
+        System.out.println(s.age);
+        s.eat(10);
     }
 
 }
