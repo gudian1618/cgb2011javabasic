@@ -9,8 +9,8 @@ package com.github.gudian1618.cgb2011javabasic.reflection;
 
 public class Student {
     // 提供成员变量
-    String name;
-    int age;
+    public String name;
+    public int age;
 
     // 提供构造方法
     public Student() {
