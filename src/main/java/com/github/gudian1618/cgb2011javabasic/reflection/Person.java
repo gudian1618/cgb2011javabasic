@@ -12,8 +12,8 @@ public class Person {
     private int age;
 
     // 私有方法
-    private void save(int m) {
-        System.out.println("save()..." + m);
+    private void save(int m, String n) {
+        System.out.println("save()..." + m + n);
     }
 
     private void update() {
