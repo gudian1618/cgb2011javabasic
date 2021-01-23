@@ -1,5 +1,7 @@
 package day10.api;
 
+import java.util.Scanner;
+
 /**
  * @author gudian1618
  * @version v1.0
