@@ -1,6 +1,7 @@
 package com.github.gudian1618.cgb2011javabasic.net;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
@@ -24,6 +25,15 @@ public class Client {
         // 字符串转换成字节数据byte[]进行写出
         out.write("hello".getBytes());
         out.close();
+
+        // 4.读取从服务器发回来的数据流
+        InputStream in = socket.getInputStream();
+        for (int i = 0; i < 5; i++) {
+            // 强转向上
+            char b = (char) in.read();
+            // 同行展示
+            System.out.print(b);
+        }
 
         // 3.释放资源
         socket.close();

@@ -2,6 +2,7 @@ package com.github.gudian1618.cgb2011javabasic.net;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -30,9 +31,14 @@ public class Server {
             // int c = in.read();
             // 小转大,强制转换
             char c = (char) in.read();
-            System.out.println(c);
+            System.out.print(c);
 
         }
+
+        // 5.给客户端发送数据
+        OutputStream out = socket.getOutputStream();
+        out.write("world".getBytes());
+        out.close();
 
         // 4.释放资源
         in.close();
