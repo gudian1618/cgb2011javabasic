@@ -11,7 +11,8 @@ import java.net.Socket;
  * @version v1.0
  * @date 2021/1/27 9:33 下午
  * Socket服务器端
- *
+ * 接收客户端的请求给客户端做出响应
+ * 测试先启动服务端,后启动客户端,不然客户端无法连接抓取到数据
  */
 
 public class Server {

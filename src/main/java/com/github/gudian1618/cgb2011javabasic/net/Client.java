@@ -12,6 +12,7 @@ import java.net.Socket;
  * Socket的客户端
  * 1.指定要连接的服务器
  * 2.给服务器发送数据
+ * 接收服务器发送来的数据,并对服务器做出响应
  */
 
 public class Client {
@@ -24,7 +25,9 @@ public class Client {
         OutputStream out = socket.getOutputStream();
         // 字符串转换成字节数据byte[]进行写出
         out.write("hello".getBytes());
-        out.close();
+        // out.close();
+        // 把数据不断刷新刷出去,而不关闭
+        out.flush();
 
         // 4.读取从服务器发回来的数据流
         InputStream in = socket.getInputStream();
