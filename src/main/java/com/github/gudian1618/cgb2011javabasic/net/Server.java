@@ -21,7 +21,7 @@ public class Server {
         // 1.启动服务,在8000端口等待客户端连接
         ServerSocket server = new ServerSocket(8000);
 
-        // 2.接收客户端的连接请求,并建立连接数据
+        // 2.接收客户端的连接请求,并建立连接数据,只能执行一次,建立一个连接
         Socket socket = server.accept();
 
         // 3.获取到读取的数据流,接收客户端发来的数据
