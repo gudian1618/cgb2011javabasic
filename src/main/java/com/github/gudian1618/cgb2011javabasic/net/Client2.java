@@ -1,45 +1,46 @@
 package com.github.gudian1618.cgb2011javabasic.net;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.Socket;
+import java.util.Scanner;
 
 /**
  * @author gudian1618
  * @version v1.0
  * @date 2021/1/27 9:33 下午
- * Socket的客户端
- * 1.指定要连接的服务器
- * 2.给服务器发送数据
- * 接收服务器发送来的数据,并对服务器做出响应
+ * 回声安利的客户端
+ * 1.连接指定的服务器
+ * 2.一直给服务器发送数据
+ * 3.一直接收服务器回声的数据
  */
 
 public class Client2 {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         // 1.指定要联机的服务器,同时指定服务器的ip地址和端口号(一一对应)
-        Socket socket = new Socket("127.0.0.1", 8000);
+        Socket socket = null;
+        try {
+            socket = new Socket("127.0.0.1", 8000);
+            // 2.获取到输出流,给服务器发送数据
+            while (true) {
+                // 向服务器写出一行数据,并且读取服务器回声回来的一行数据
+                PrintWriter out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
+                BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                // 3. 一直发送一直接收
+                System.out.println("请输入您要给服务器端发送的数据:");
+                String input = new Scanner(System.in).nextLine();
+                // 向服务器发送了指定的数据
+                out.println(input);
+                // 把数据持续的输出去不间断
+                out.flush();
 
-        // 2.获取到输出流,给服务器发送数据
-        OutputStream out = socket.getOutputStream();
-        // 字符串转换成字节数据byte[]进行写出
-        out.write("hello".getBytes());
-        // out.close();
-        // 把数据不断刷新刷出去,而不关闭
-        out.flush();
-
-        // 4.读取从服务器发回来的数据流
-        InputStream in = socket.getInputStream();
-        for (int i = 0; i < 5; i++) {
-            // 强转向上
-            char b = (char) in.read();
-            // 同行展示
-            System.out.print(b);
+                // 读取回声数据
+                String line = in.readLine();
+                System.out.println("服务器的回声数据是:" + line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-        // 3.释放资源
-        socket.close();
 
     }
 }
