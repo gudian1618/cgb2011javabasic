@@ -71,6 +71,27 @@ public class TestCRUD {
 
     @Test
     public void testFind() {
+        Connection conn = null;
+        Statement stat = null;
+        ResultSet rs = null;
+
+        try {
+            conn = JdbcUtil.getConn();
+            stat = conn.createStatement();
+            String sql = "select * from account where name='john'";
+            rs = stat.executeQuery(sql);
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                double money = rs.getDouble("money");
+                System.out.println(id + ":" + name + ":" + money);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            JdbcUtil.close(conn, stat, rs);
+        }
+
 
     }
 
