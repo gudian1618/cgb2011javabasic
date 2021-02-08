@@ -1,8 +1,8 @@
 package com.github.gudian1618.cgb2011javabasic.jdbc;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.Scanner;
 
 /**
@@ -10,9 +10,10 @@ import java.util.Scanner;
  * @version v1.0
  * @date 2021/2/3 8:46 下午
  * 模拟用户登录
+ * 通过java的PreparedStatement方法对象,来保证对象的sql安全
  */
 
-public class LoginUser {
+public class LoginUser2 {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -36,17 +37,22 @@ public class LoginUser {
      */
     private static void login(String user, String pwd) {
         Connection conn = null;
-        Statement stat = null;
+        PreparedStatement ps = null;
         ResultSet rs = null;
 
         try {
             // 注册驱动并获取连接
             conn = JdbcUtil.getConn();
             // 获取传输器并发送sql到服务器执行,并返回执行结果
-            stat = conn.createStatement();
-            String sql = "select * from user where username='" + user + "' and password='" +pwd+ "'";
-            System.out.println(sql);
-            rs = stat.executeQuery(sql);
+            String sql = "select * from user where username=? and password=?";
+            ps = conn.prepareStatement(sql);
+            // 设置SQL参数
+            ps.setString(1, user);
+            ps.setString(2, pwd);
+
+            // 指向SQL语句
+            rs = ps.executeQuery();
+
             // 处理结果
             if (rs.next()) {
                 System.out.println("恭喜您登陆成功!");
@@ -57,7 +63,7 @@ public class LoginUser {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            JdbcUtil.close(conn, stat, rs);
+            JdbcUtil.close(conn, ps, rs);
         }
 
     }
