@@ -27,10 +27,10 @@ public class TestC3P0 {
 
         try {
             // 2.设置连接数据库的基本信息
-            pool.setDriverClass("com.mysql.jdbc.Driver");
-            pool.setJdbcUrl("jdbc:mysql:///jt_db_test?characterEncoding=utf-8");
-            pool.setUser("root");
-            pool.setPassword("123456");
+            // pool.setDriverClass("com.mysql.jdbc.Driver");
+            // pool.setJdbcUrl("jdbc:mysql:///jt_db_test?characterEncoding=utf-8");
+            // pool.setUser("root");
+            // pool.setPassword("123456");
 
             // 3.从连接池中获取连接对象
             conn = pool.getConnection();
