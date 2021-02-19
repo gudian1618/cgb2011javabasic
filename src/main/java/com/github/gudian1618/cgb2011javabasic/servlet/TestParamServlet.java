@@ -25,6 +25,29 @@ public class TestParamServlet extends HttpServlet {
         System.out.println("user:" + user);
         String[] likes = request.getParameterValues("like");
         System.out.println("like=" + Arrays.toString(likes));
+
+        System.out.println("==============================");
+        // ======练习:获取注册表单中的请求参数
+
+        // 获取请求中的username
+        String username = request.getParameter("username");
+        System.out.println("username=" + username);
+        // 获取请求中的pwd
+        String pwd = request.getParameter("pwd");
+        System.out.println("pwd=" + pwd);
+        // 获取请求中的gender
+        String gender = request.getParameter("gender");
+        System.out.println("gender=" + gender);
+        // 获取请求中的like
+        String like = request.getParameter("like");
+        System.out.println("like=" + like);
+        // 获取请求中的city
+        String city = request.getParameter("city");
+        System.out.println("city=" + city);
+        // 获取请求中的description
+        String description = request.getParameter("description");
+        System.out.println("description=" + description);
+
         out.write("TestParamServlet...");
     }
 

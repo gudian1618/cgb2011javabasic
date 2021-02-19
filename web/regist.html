@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>注册表单</title>
+	<style>
+		/* style标签内部可以存放css属性或者css注释 */
+		table{ /* 选中所有的table元素 */
+			border: 2px solid red;
+			/* 设置边框合并 */
+			border-collapse: collapse;
+			/* 设置背景颜色 */
+			background: lightgrey;
+			/* 设置边框的宽度 */
+			/* width: 70%; */
+			/* 设置边框左右外边距自适应(可以让表格水平居中) */
+			margin-left: auto;
+			margin-right: auto;
+		}
+		td,th{ /* 选中所有的td和th元素 */
+			border: 2px solid red;
+			/* 设置边框合并 */
+			border-collapse: collapse;
+			/* 设置单元格边框和内容之间的距离(内边距) */
+			padding: 5px;
+		}
+		h1{
+			/* 设置元素内容水平居中显示 */
+			text-align: center;
+		}
+		textarea{ /* 选中多行文本输入框 */
+			resize: none; /* 设置多行文本输入框不可调整大小 */
+		}
+	</style>
+</head>
+<body>
+	<h1>欢迎注册</h1>
+	<form action="http://localhost:8080/cgb2011javabasic_war_exploded/TestParamServlet">
+		<table>
+			<tr><!-- 第一行: 用户名 -->
+				<td>用户名:</td>
+				<td><!-- 普通文本输入框 -->
+					<input type="text"  name="username"/>
+				</td>
+			</tr>
+			<tr><!-- 第二行: 密码 -->
+				<td>密码:</td>
+				<td><!-- 密码输入框 -->
+					<input type="password"  name="pwd"/>
+				</td>
+			</tr>
+			<tr><!-- 第三行: 性别 -->
+				<td>性别:</td>
+				<td><!-- 单选框 -->
+					<input type="radio"  checked="checked"  name="gender"  value="male"/>男
+					<input type="radio"  name="gender"  value="female"/>女
+				</td>
+			</tr>
+			<tr><!-- 第四行: 爱好 -->
+				<td>爱好:</td>
+				<td><!-- 复选框/多选框 -->
+					<input type="checkbox"  name="like"  value="basketball"/>篮球
+					<input type="checkbox"  checked="checked"  name="like"  value="football"/>足球
+					<input type="checkbox"  name="like"  value="volleyball"/>排球
+				</td>
+			</tr>
+			<tr><!-- 第五行: 城市 -->
+				<td>城市:</td>
+				<td><!-- 下拉选框 -->
+				<select  name="city"> <!-- 定义一个下拉选框 -->
+					<option value="bj">北京</option>
+					<option value="sh"  selected="selected">上海</option>
+					<option>广州</option>
+					<option>深圳</option>
+				</select>
+				</td>
+			</tr>
+			<tr><!-- 第六行: 自我描述 -->
+				<td>自我描述:</td>
+				<td><!-- 多行文本输入框 -->
+					<textarea  name="description"  cols="30"  rows="5"  placeholder="请输入描述信息..."></textarea>
+				</td>
+			</tr>
+			<tr><!-- 提交按钮 -->
+				<td colspan="2"  style="text-align: center;"> <!-- colspan指定单元格横跨的列数 / rowspan -->
+					<input type="submit"  value="提交"/>
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
+
+
+
+
+
+
