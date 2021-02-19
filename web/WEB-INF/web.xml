@@ -11,4 +11,13 @@
         <servlet-name>HelloServlet</servlet-name>
         <url-pattern>/HelloServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TestParamServlet</servlet-name>
+        <servlet-class>com.github.gudian1618.cgb2011javabasic.servlet.TestParamServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TestParamServlet</servlet-name>
+        <url-pattern>/TestParamServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
