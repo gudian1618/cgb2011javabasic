@@ -44,7 +44,7 @@ public class TestParamServlet extends HttpServlet {
         // 获取请求中的city
         String city = request.getParameter("city");
         System.out.println("city=" + city);
-        // 获取请求中的description
+        // 获取请求中的descriptregist.htmlion
         String description = request.getParameter("description");
         System.out.println("description=" + description);
 
