@@ -20,4 +20,23 @@
         <servlet-name>TestParamServlet</servlet-name>
         <url-pattern>/TestParamServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AServlet</servlet-name>
+        <servlet-class>com.github.gudian1618.cgb2011javabasic.servlet.AServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AServlet</servlet-name>
+        <url-pattern>/AServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>BServlet</servlet-name>
+        <servlet-class>com.github.gudian1618.cgb2011javabasic.servlet.BServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BServlet</servlet-name>
+        <url-pattern>/BServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>
